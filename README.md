@@ -1,6 +1,5 @@
 import hashlib
 
-# Клас, що представляє користувача
 class User:
     def __init__(self, username, password):
         self.username = username
@@ -15,7 +14,7 @@ class User:
         password_hash = self._hash_password(password)
         return password_hash == self.password_hash
 
-# Клас, що представляє систему реєстрації та автентифікації користувачів
+
 class AuthenticationSystem:
     def __init__(self):
         self.users = {}
@@ -30,7 +29,7 @@ class AuthenticationSystem:
 
         print("Користувач успішно зареєстрований.")
 
-    # Метод для автентифікації користувача
+  
     def authenticate_user(self, username, password):
         if username not in self.users:
             raise ValueError("Користувача з таким іменем не знайдено.")
@@ -42,18 +41,14 @@ class AuthenticationSystem:
         print("Користувач успішно автентифікований.")
 
 
-# Приклад використання
-
-# Створення об'єкту системи реєстрації та автентифікації
 auth_system = AuthenticationSystem()
 
-# Реєстрація нового користувача
+
 try:
     auth_system.register_user("user1", "password123")
 except ValueError as e:
     print(f"Помилка реєстрації: {str(e)}")
 
-# Автентифікація користувача
 try:
     auth_system.authenticate_user("user1", "password123")
 except ValueError as e:
